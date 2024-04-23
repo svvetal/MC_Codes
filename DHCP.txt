@@ -1,0 +1,27 @@
+DHCP
+
+1. 2811 router
+2. 2950T switch
+3. random devices
+4. copper cable connections devices -> switch , switch -> router
+5. router -> click ->
+	     CLI tab -> press Enter -> 
+		en
+		conf -t
+		int fa0/0
+		ip address 192.168.0.1.255.255.255.0
+		no shutdown
+		do write memory
+
+		ip dhcp pool net1
+		network 192.168.0.1.255.255.255.0
+		exit
+
+		int fa0/1
+		ip address 192.168.1.1.255.255.255.0
+		no shutdown
+		do write memory
+
+		ip dhcp pool net2
+		network 192.168.1.1.255.255.255.0
+		exit
